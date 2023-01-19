@@ -1,10 +1,1 @@
-<?php 
-  //pull in usable code from function file into every page.
-  include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
-  
-  echo '<pre>';
-    var_dump($tasksData);
-  echo '</pre>';
-
-
-?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
