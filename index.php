@@ -1,4 +1,14 @@
-<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
+$taskCount = 0;
+$userCount = 0;
+
+foreach ($tasksData as $task) {
+  $taskCount++;
+}
+foreach ($usersData as $task) {
+  $userCount++;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,46 +28,41 @@
                 <div class="p-4 p-lg-5 bg-light rounded-3 ">
                     <div class="m-4 m-lg-5">
                         <h1 class="display-5 fw-bold text-center">Creat A New Task</h1>
-
-<form class="row g-3 fs-4" action="redirects/task.php" method="post">
-  <div class="col-md-6">
-    <label for="title" class="form-label">Task Title</label>
-    <input type="text" class="form-control" name="title">
-  </div>
-  <div class="col-md-6">
-    <label for="inputState" class="form-label">Task Category</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose One</option>
-      <option>Homework</option>
-      <option>Chores</option>
-      <option>Event</option>
-    </select>
-  </div>
-  <div class="col-12">
-    <label for="description" class="form-label">Task Description</label>
-    <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
-  </div>
-  <div class="col-md-6">
-    <label for="value" class="form-label">Task Value</label>
-    <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
-    <input type="number" class="form-control" name="value" step=".01">
-  </div>
-  <div class="col-md-6">
-    <label for="time" class="form-label">Minutes Needed To Complete</label>
-    <input type="number" class="form-control" name="time">
-  </div>
-  
-  <div class="col-12">
-    <input type="submit" class="btn btn-primary btn-lg" value="Create">
-  </div>
-</form>
-
-
-
-                      
-
-                      
-                        
+                          
+                          <!-- Task Form-->              
+                            <form class="row g-3 fs-4" action="redirects/task.php" method="post">
+                              <div class="col-md-6">
+                                <label for="title" class="form-label">Task Title</label>
+                                <input type="text" class="form-control" name="title">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="inputState" class="form-label">Task Category</label>
+                                <select id="inputState" class="form-select">
+                                  <option selected>Choose One</option>
+                                  <option>Homework</option>
+                                  <option>Chores</option>
+                                  <option>Event</option>
+                                </select>
+                              </div>
+                              <div class="col-12">
+                                <label for="description" class="form-label">Task Description</label>
+                                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="value" class="form-label">Task Value</label>
+                                <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
+                                <input type="number" class="form-control" name="value" step=".01">
+                              </div>
+                              <div class="col-md-6">
+                                <label for="time" class="form-label">Minutes Needed To Complete</label>
+                                <input type="number" class="form-control" name="time">
+                              </div>
+                              
+                              <div class="col-12">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Create">
+                              </div>
+                            </form>
+                        <!-- Task Form-->  
 
                     </div>
                 </div>
@@ -72,8 +77,8 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
-                                <h2 class="fs-4 fw-bold">Fresh new layout</h2>
-                                <p class="mb-0">With Bootstrap 5, we've created a fresh new layout for this template!</p>
+                                <h2 class="fs-4 fw-bold">Total Tasks</h2>
+                                <p class="mb-0">Task Count = <?php echo $taskCount;?></p>
                             </div>
                         </div>
                     </div>
@@ -81,8 +86,8 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
-                                <h2 class="fs-4 fw-bold">Free to download</h2>
-                                <p class="mb-0">As always, Start Bootstrap has a powerful collectin of free templates.</p>
+                                <h2 class="fs-4 fw-bold">Total Users</h2>
+                                <p class="mb-0">User Count = <?php echo $userCount;?></p>
                             </div>
                         </div>
                     </div>
