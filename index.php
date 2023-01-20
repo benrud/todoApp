@@ -17,7 +17,19 @@ foreach ($usersData as $task) {
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Heroic Features - Start Bootstrap Template</title>
-        <?php echo $styleSheetFiles;?>     
+        <?php echo $styleSheetFiles;?>   
+<!-- Code For Date Picker :: https://jqueryui.com/datepicker/ -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+      <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+      </script>
+<!-- Code For Date Picker :: https://jqueryui.com/datepicker/ -->
+      
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -36,8 +48,8 @@ foreach ($usersData as $task) {
                                 <input type="text" class="form-control" name="title">
                               </div>
                               <div class="col-md-6">
-                                <label for="inputState" class="form-label">Task Category</label>
-                                <select id="inputState" class="form-select">
+                                <label for="category" class="form-label">Task Category</label>
+                                <select id="category" class="form-select" name="category">
                                   <option selected>Choose One</option>
                                   <option>Homework</option>
                                   <option>Chores</option>
@@ -49,14 +61,19 @@ foreach ($usersData as $task) {
                                 <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
                               </div>
                               <div class="col-md-6">
-                                <label for="value" class="form-label">Task Value</label>
+                                <label for="reward" class="form-label">Task Value</label>
                                 <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
-                                <input type="number" class="form-control" name="value" step=".01">
+                                <input type="number" class="form-control" name="reward" step=".01">
                               </div>
                               <div class="col-md-6">
-                                <label for="time" class="form-label">Minutes Needed To Complete</label>
-                                <input type="number" class="form-control" name="time">
+                                <label for="timeNeeded" class="form-label">Minutes Needed To Complete</label>
+                                <input type="number" class="form-control" name="timeNeeded">
                               </div>
+                              <div class="col-md-6">
+                                <label for="dateDeadline" class="form-label">Complete By Date</label>
+                                <input type="text" id="datepicker" name="dateDeadline">
+                              </div>
+
                               
                               <div class="col-12">
                                 <input type="submit" class="btn btn-primary btn-lg" value="Create">
