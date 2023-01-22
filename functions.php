@@ -10,6 +10,24 @@
 // JSON data needed for app.
 
 
+
+
+
+
+
+
+
+
+
+
+  // echo '<pre>';
+  // var_dump($tasksData);
+  // echo '</pre>';
+
+
+// **************** reusable TEMPLATE variables below
+// **************** reusable TEMPLATE variables below
+// **************** reusable TEMPLATE variables below
   $styleSheetFiles = 
     ' 
       <!-- Favicon-->
@@ -48,9 +66,5 @@ $navBar =
         </div>
     </nav>
   ';
-
-  // echo '<pre>';
-  // var_dump($tasksData);
-  // echo '</pre>';
 
 ?>
