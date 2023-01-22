@@ -1,13 +1,5 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
-$taskCount = 0;
-$userCount = 0;
 
-foreach ($tasksData as $task) {
-  $taskCount++;
-}
-foreach ($usersData as $task) {
-  $userCount++;
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,7 +89,7 @@ foreach ($usersData as $task) {
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
                                 <h2 class="fs-4 fw-bold">Total Tasks</h2>
-                                <p class="mb-0">Task Count = <?php echo $taskCount;?></p>
+                                <p class="mb-0">Task Count = <?php echo count($tasksData);;?></p>
                             </div>
                         </div>
                     </div>
@@ -106,7 +98,7 @@ foreach ($usersData as $task) {
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
                                 <h2 class="fs-4 fw-bold">Total Users</h2>
-                                <p class="mb-0">User Count = <?php echo $userCount;?></p>
+                                <p class="mb-0">User Count = <?php echo count($usersData);?></p>
                             </div>
                         </div>
                     </div>
