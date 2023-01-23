@@ -1,5 +1,42 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
+//process form IF user selected and BTN_create was clicked 
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['BTN_create']) && $_POST['user'] > 0 && isset($_POST['BTN_create'])){
+  //verify form complete
+  echo "pass";
+
+
+
+
+// //create date from picker
+// $dateDeadline = date_create($_POST['dateDeadline']);
+// //convert date from picker
+// $dateDeadline = date_format($dateDeadline,"Y/m/d");
+
+// $newTask = array(
+//   "uid"=> $newUID,
+//   "userUID"=> "xxxxx",
+//   "dateCreate"=> date("Y-m-d"), 
+//   "dateDeadline"=> $dateDeadline, 
+//   "dateComplete"=> NULL, 
+//   "title"=> $_POST['title'], 
+//   "status"=> "created",
+//   "description"=> $_POST['description'], 
+//   "reward"=> $_POST['reward'],
+//   "timeNeeded"=> $_POST['timeNeeded'],
+//   "category"=> $_POST['category']
+// );
+
+
+  
+} else {
+  echo "fail";
+}
+
+
+
+
+
 //Create a new LARGEST UID based on existing UIDs in an array. 
 $largest_uid = 0;
 foreach ($tasksData as $item) {
@@ -10,24 +47,7 @@ foreach ($tasksData as $item) {
 }
 
 
-//create date from picker
-$dateDeadline = date_create($_POST['dateDeadline']);
-//convert date from picker
-$dateDeadline = date_format($dateDeadline,"Y/m/d");
 
-$newTask = array(
-  "uid"=> $newUID,
-  "userUID"=> "xxxxx",
-  "dateCreate"=> date("Y-m-d"), 
-  "dateDeadline"=> $dateDeadline, 
-  "dateComplete"=> NULL, 
-  "title"=> $_POST['title'], 
-  "status"=> "created",
-  "description"=> $_POST['description'], 
-  "reward"=> $_POST['reward'],
-  "timeNeeded"=> $_POST['timeNeeded'],
-  "category"=> $_POST['category']
-);
 
 
 

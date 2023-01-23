@@ -1,6 +1,4 @@
-<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
-
-?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,8 +23,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <?php echo $navBar;?>
-   
+        <?php echo $navBar;?>   
       <!-- Header-->
         <header class="py-5">
             <div class="container px-lg-5">
@@ -55,6 +52,7 @@
                                 <label for="title" class="form-label">Task Title</label>
                                 <input type="text" class="form-control" name="title">
                               </div>
+                              
                                <div class="col-md-6">
                                 <label for="category" class="form-label">Task Category</label>
                                 <select id="category" class="form-select" name="category">
@@ -63,30 +61,33 @@
                                   <option>Chores</option>
                                   <option>Event</option>
                                 </select>
-                              </div>                             
+                              </div> 
+                              
                               <div class="col-md-6">
                                 <label for="category" class="form-label">Task Due Date</label><br>
                                 <input type="text" class="form-select" id="datepicker" name="dateDeadline">
                               </div>
+                              
                               <div class="col-12">
                                 <label for="description" class="form-label">Task Description</label>
                                 <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
                               </div>
+                              
                               <div class="col-md-6">
                                 <label for="reward" class="form-label">Task Value</label>
                                 <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
                                 <input type="number" class="form-control" name="reward" step=".01">
                               </div>
+                              
                               <div class="col-md-6">
                                 <label for="timeNeeded" class="form-label">Minutes Needed To Complete</label>
                                 <input type="number" class="form-control" name="timeNeeded">
                               </div>
                               
-
-                              
                               <div class="col-12">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Create">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Create" name="BTN_create">
                               </div>
+                              
                             </form>
                         <!-- Task Form-->  
 
