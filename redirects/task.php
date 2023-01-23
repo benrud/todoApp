@@ -1,8 +1,9 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
 //process form IF user selected and BTN_create was clicked 
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['BTN_create']) && $_POST['user'] > 0 && isset($_POST['BTN_create'])){
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['BTN_create']) && $_POST['user'] > 0 && isset($_POST['BTN_create']) && $_POST['category'] !== "NULL") {
   //verify form complete
+  
   echo "pass";
 
 
@@ -56,7 +57,7 @@ foreach ($tasksData as $item) {
   // echo '</pre>';
 
   echo '<pre>';
-  var_dump($newTask);
+  var_dump($_POST);
   echo '</pre>';
 
 

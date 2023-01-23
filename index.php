@@ -33,12 +33,12 @@
                         <h1 class="display-5 fw-bold text-center">Creat A New Task</h1>
                           
                           <!-- Task Form-->                        
-                            <form class="row g-3 fs-4" action="redirects/task.php" method="post" id="newTaskForm1" >
+                            <form class="row g-3 fs-4" action="redirects/task.php" method="post" id="newTaskForm"  onsubmit="return validateForm()" name="myForm" >
                               
                               <div class="col-md-6">
-                                <label for="user" class="form-label">User</label>
+                                <label for="user" class="form-label">User <span style="color:red; font-size: 10px">*required</span></label>
                                 <select id="user" class="form-select" name="user">
-                                  <option selected>Choose One</option>
+                                  <option selected value="0">Choose One <span style="color:red; font-size: 10px">*required</span></option>
                                     <?php
                                       foreach($usersData as $user){
                                         echo '<option selected value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
@@ -49,23 +49,23 @@
                               
                               
                               <div class="col-md-6">
-                                <label for="title" class="form-label">Task Title</label>
+                                <label for="title" class="form-label">Task Title <span style="color:red; font-size: 10px">*required</span></label>
                                 <input type="text" class="form-control" name="title">
                               </div>
                               
                                <div class="col-md-6">
-                                <label for="category" class="form-label">Task Category</label>
+                                <label for="category" class="form-label">Task Category <span style="color:red; font-size: 10px">*required</span></label>
                                 <select id="category" class="form-select" name="category">
-                                  <option selected>Choose One</option>
-                                  <option>Homework</option>
-                                  <option>Chores</option>
-                                  <option>Event</option>
+                                  <option selected value="0">Choose One</option>
+                                  <option value="Homework">Homework</option>
+                                  <option value="Chore">Chores</option>
+                                  <option value="Event">Event</option>
                                 </select>
                               </div> 
                               
                               <div class="col-md-6">
-                                <label for="category" class="form-label">Task Due Date</label><br>
-                                <input type="text" class="form-select" id="datepicker" name="dateDeadline">
+                                <label for="category" class="form-label">Task Due Date <span style="color:red; font-size: 10px">*required</span></label><br>
+                                <input type="text" class="form-select" id="datepicker" name="dateDeadline" >
                               </div>
                               
                               <div class="col-12">
