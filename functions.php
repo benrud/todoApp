@@ -1,27 +1,18 @@
 <?php session_start();
+$taskDataFile = $_SERVER['DOCUMENT_ROOT']."/data/tasks.json";
+$usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
 
 // JSON data needed for app.
     // Get data from json file.
-    $jsonTasks = file_get_contents($_SERVER['DOCUMENT_ROOT']."/data/tasks.json"); 
-    $jsonUsers = file_get_contents($_SERVER['DOCUMENT_ROOT']."/data/users.json");
+    $jsonTasks = file_get_contents($taskDataFile); 
+    $jsonUsers = file_get_contents($usersDataFile); 
     // Convert json data to PHP array.
     $tasksData =  json_decode($jsonTasks, TRUE);   
     $usersData =  json_decode($jsonUsers, TRUE);
 // JSON data needed for app.
 
-
-
-
-
-
-
-
-
-
-
-
   // echo '<pre>';
-  // var_dump($tasksData);
+  // var_dump($usersData);
   // echo '</pre>';
 
 

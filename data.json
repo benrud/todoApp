@@ -37,31 +37,5 @@
         "reward": "32",
         "timeNeeded": "9876",
         "category": "Chore"
-    },
-    {
-        "uid": 2004,
-        "userUID": "102",
-        "dateCreate": "2023-01-24",
-        "dateDeadline": "2023\/01\/31",
-        "dateComplete": null,
-        "title": "title stuff",
-        "status": "created",
-        "description": "adfgadfh",
-        "reward": "1.11",
-        "timeNeeded": "1",
-        "category": "Homework"
-    },
-    {
-        "uid": 2005,
-        "userUID": "101",
-        "dateCreate": "2023-01-24",
-        "dateDeadline": "2023\/02\/11",
-        "dateComplete": null,
-        "title": "NEW stuff",
-        "status": "created",
-        "description": "",
-        "reward": "5",
-        "timeNeeded": "100",
-        "category": "Event"
     }
 ]
