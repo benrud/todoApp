@@ -1,8 +1,10 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
+//$tasksData and $usersData are defined in functions.php.
+
 // #1 MAKE SURE FORM DATA IS VALID
 // process form IF user selected and BTN_create was clicked 
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['BTN_create']) && $_POST['user'] > 0) {
+if(isset($_POST['BTN_create']) && $_POST['user'] > 0) {
 
 // #2 REFORMAT DEADLINE DATE
 //Create a deadline date using form data  
@@ -51,21 +53,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['BTN_create']) && $_POST
   
 } //end of validation if() statement
 
+
+
+
+
+
+  
   // echo '<pre>';
   // var_dump($newFormData);
   // echo '</pre>';
 
 
 
-//combines task data with user data.
-  $combinedData = [];
-  foreach ($tasksData as $item1) {
-      foreach ($usersData as $item2) {
-          if ($item1["userUID"] == $item2["uid"]) {
-              $combinedData[] = array_merge($item1, $item2);
-          }
-      }
-  }
+
 
 
 //   header('Location: /index.php');

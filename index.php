@@ -104,8 +104,9 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
-                                <h2 class="fs-4 fw-bold">Total Tasks</h2>
-                                <p class="mb-0">Task Count = <?php echo count($tasksData);;?></p>
+                                <h2 class="fs-4 fw-bold">Important Values</h2>
+                                <p class="mb-0"><?php echo "Total Tasks: ".count($tasksData);?></p>
+                                <p class="mb-0"><?php echo "Total Users: ".count($usersData);?></p>
                             </div>
                         </div>
                     </div>
@@ -113,8 +114,8 @@
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
-                                <h2 class="fs-4 fw-bold">Total Users</h2>
-                                <p class="mb-0">User Count = <?php echo count($usersData);?></p>
+                                <h2 class="fs-4 fw-bold">Important Values</h2>
+                                <p class="mb-0">User Count = <?php echo "Total Tasks: ".count($usersData);?></p>
                             </div>
                         </div>
                     </div>

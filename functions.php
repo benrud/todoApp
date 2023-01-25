@@ -11,10 +11,34 @@ $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
     $usersData =  json_decode($jsonUsers, TRUE);
 // JSON data needed for app.
 
-  // echo '<pre>';
-  // var_dump($usersData);
-  // echo '</pre>';
 
+
+
+
+// **************** reusable DATA manipulation functions and variables below
+// **************** reusable DATA manipulation functions and variables below
+// **************** reusable DATA manipulation functions and variables below
+
+
+// combines task data with user data. chapGPT {PHP Join Multidimensional Arrays}
+        $combinedData = [];
+        foreach ($tasksData as $item1) {
+            foreach ($usersData as $item2) {
+                if ($item1["userUID"] == $item2["uid"]) {
+                    $combinedData[] = array_merge($item1, $item2);
+                }
+            }
+        }
+
+array_multisort(array_map('strtotime',array_column($combinedData,'dateDeadline')),
+                SORT_DESC, 
+                $combinedData);
+
+
+
+  echo '<pre>';
+  var_dump($combinedData);
+  echo '</pre>';
 
 // **************** reusable TEMPLATE variables below
 // **************** reusable TEMPLATE variables below
@@ -49,9 +73,9 @@ $navBar =
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Tasks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">New Task</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tasks/">Tasks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tasks/new.php">New Task</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/tasks/status.php">Search</a></li>
                 </ul>
             </div>
         </div>
