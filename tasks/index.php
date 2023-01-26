@@ -1,6 +1,9 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
-
+//sort array by date
+usort($combinedData, function($a, $b) {
+    return strtotime($b['dateDeadline']) - strtotime($a['dateDeadline']);
+});
 
 ?>
 <!DOCTYPE html>
@@ -30,6 +33,7 @@
                            <thead>
                             <tr>
                               <th scope="col">Created</th>
+                              <th scope="col">Deadline</th>
                               <th scope="col">User</th>
                               <th scope="col">Title</th>
                               <th scope="col">Category</th>
@@ -42,6 +46,7 @@
                               foreach ($combinedData as $item){
                                  echo "<tr>";
                                   echo "<td>". $item['dateCreate']. "</td>"; 
+                                  echo "<td>". $item['dateDeadline']."</td>";
                                   echo "<td>". $item['fName']." ".$item['lName']."</td>";
                                   echo "<td>". $item['title']. "</td>";
                                   echo "<td>". $item['category']. "</td>";

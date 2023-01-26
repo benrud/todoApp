@@ -11,10 +11,6 @@ $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
     $usersData =  json_decode($jsonUsers, TRUE);
 // JSON data needed for app.
 
-
-
-
-
 // **************** reusable DATA manipulation functions and variables below
 // **************** reusable DATA manipulation functions and variables below
 // **************** reusable DATA manipulation functions and variables below
@@ -30,15 +26,9 @@ $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
             }
         }
 
-array_multisort(array_map('strtotime',array_column($combinedData,'dateDeadline')),
-                SORT_DESC, 
-                $combinedData);
-
-
-
-  echo '<pre>';
-  var_dump($combinedData);
-  echo '</pre>';
+//   echo '<pre>';
+//   var_dump($combinedData);
+//   echo '</pre>';
 
 // **************** reusable TEMPLATE variables below
 // **************** reusable TEMPLATE variables below
@@ -68,11 +58,11 @@ $navBar =
   '
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-lg-5">
-            <a class="navbar-brand" href="#!">Task Manager</a>
+            <a class="navbar-brand" href="/index.php">Todd\'s Task Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/tasks/">Tasks</a></li>
                     <li class="nav-item"><a class="nav-link" href="/tasks/new.php">New Task</a></li>
                     <li class="nav-item"><a class="nav-link" href="/tasks/status.php">Search</a></li>

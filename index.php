@@ -1,4 +1,4 @@
-<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php';?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -57,9 +57,11 @@
                                 <label for="category" class="form-label">Task Category <span style="color:red; font-size: 10px">*required</span></label>
                                 <select id="category" class="form-select" name="category">
                                   <option selected value="0">Choose One</option>
-                                  <option value="Homework">Homework</option>
+                                  <option value="Schoolwork">Schoolwork</option>
                                   <option value="Chore">Chores</option>
-                                  <option value="Event">Event</option>
+                                  <option value="Social">Social</option>
+                                  <option value="Health">Health</option>
+                                  <option value="Travel">Travel</option>
                                 </select>
                               </div> 
                               
