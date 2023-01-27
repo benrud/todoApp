@@ -1,4 +1,4 @@
-<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php';?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,33 +7,92 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Heroic Features - Start Bootstrap Template</title>
-        <?php echo $cssFiles;?>
+        <?php echo $styleSheetFiles;?>   
+<!-- Code For Date Picker :: https://jqueryui.com/datepicker/ -->
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+      <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+      } );
+      </script>
+<!-- Code For Date Picker :: https://jqueryui.com/datepicker/ -->
+      
     </head>
     <body>
         <!-- Responsive navbar-->
-        <?php echo $nav;?>
-        <!-- Header-->
+        <?php echo $navBar;?>
+      <!-- Header-->
         <header class="py-5">
             <div class="container px-lg-5">
-                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+                <div class="p-4 p-lg-5 bg-light rounded-3 ">
                     <div class="m-4 m-lg-5">
-                        <h1 class="display-5 fw-bold">A warm welcome!</h1>
-                        <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
-<?php
-$string = "dog cat dog cat";
-$pattern = "/(dog){2}(cat){2}/";
+          
+                        <h1 class="display-5 fw-bold text-center">Creat A New Task</h1>
+                          
+                          <!-- Task Form-->                        
+                            <form class="row g-3 fs-4" action="redirects/task.php" method="post" id="newTaskForm"  onsubmit="return validateForm()" name="myForm" >
+                              
+                              <div class="col-md-6">
+                                <label for="user" class="form-label">User <span style="color:red; font-size: 10px">*required</span></label>
+                                <select id="user" class="form-select" name="user">
+                                  <option selected value="0">Choose One <span style="color:red; font-size: 10px">*required</span></option>
+                                    <?php
+                                      foreach($usersData as $user){
+                                        echo '<option selected value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
+                                      }
+                                    ?>
+                                </select>
+                              </div>                              
+                              
+                              
+                              <div class="col-md-6">
+                                <label for="title" class="form-label">Task Title <span style="color:red; font-size: 10px">*required</span></label>
+                                <input type="text" class="form-control" name="title">
+                              </div>
+                              
+                               <div class="col-md-6">
+                                <label for="category" class="form-label">Task Category <span style="color:red; font-size: 10px">*required</span></label>
+                                <select id="category" class="form-select" name="category">
+                                  <option selected value="0">Choose One</option>
+                                  <option value="Schoolwork">Schoolwork</option>
+                                  <option value="Chore">Chores</option>
+                                  <option value="Social">Social</option>
+                                  <option value="Health">Health</option>
+                                  <option value="Travel">Travel</option>
+                                </select>
+                              </div> 
+                              
+                              <div class="col-md-6">
+                                <label for="category" class="form-label">Task Due Date <span style="color:red; font-size: 10px">*required</span></label><br>
+                                <input type="text" class="form-select" id="datepicker" name="dateDeadline" >
+                              </div>
+                              
+                              <div class="col-12">
+                                <label for="description" class="form-label">Task Description</label>
+                                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                              </div>
+                              
+                              <div class="col-md-6">
+                                <label for="reward" class="form-label">Task Value</label>
+                                <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
+                                <input type="number" class="form-control" name="reward" step=".01">
+                              </div>
+                              
+                              <div class="col-md-6">
+                                <label for="timeNeeded" class="form-label">Minutes Needed To Complete</label>
+                                <input type="number" class="form-control" name="timeNeeded">
+                              </div>
+                              
+                              <div class="col-12">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Create" name="BTN_create">
+                              </div>
+                              
+                            </form>
+                        <!-- Task Form-->  
 
-if (preg_match($pattern, $string)) {
-    echo "Match found!";
-} else {
-    echo "No match found.";
-}
-?>
-
-
-                     
-                      
-                      <a class="btn btn-primary btn-lg" href="#!">Call to action</a>
                     </div>
                 </div>
             </div>
@@ -47,8 +106,9 @@ if (preg_match($pattern, $string)) {
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
-                                <h2 class="fs-4 fw-bold">Fresh new layout</h2>
-                                <p class="mb-0">With Bootstrap 5, we've created a fresh new layout for this template!</p>
+                                <h2 class="fs-4 fw-bold">Important Values</h2>
+                                <p class="mb-0"><?php echo "Total Tasks: ".count($tasksData);?></p>
+                                <p class="mb-0"><?php echo "Total Users: ".count($usersData);?></p>
                             </div>
                         </div>
                     </div>
@@ -56,8 +116,8 @@ if (preg_match($pattern, $string)) {
                         <div class="card bg-light border-0 h-100">
                             <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
                                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
-                                <h2 class="fs-4 fw-bold">Free to download</h2>
-                                <p class="mb-0">As always, Start Bootstrap has a powerful collectin of free templates.</p>
+                                <h2 class="fs-4 fw-bold">Important Values</h2>
+                                <p class="mb-0">User Count = <?php echo "Total Tasks: ".count($usersData);?></p>
                             </div>
                         </div>
                     </div>
@@ -102,8 +162,8 @@ if (preg_match($pattern, $string)) {
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <?php echo $footer;?>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
         </footer>
-        <?php echo $cssFiles;?>
+        <?php echo $javaScriptFiles;?>
     </body>
 </html>
