@@ -20,16 +20,89 @@ usort($combinedData, function($a, $b) {
         <!-- Responsive navbar-->
         <?php echo $navBar;?>
         <!-- Header-->
-        <section class="py-5">
+      <div class="container px-lg-5 mt-5">
+                <div class="p-4 p-lg-5 bg-light rounded-3 ">
+                    <div class="m-4 m-lg-5">
+          
+                        <h1 class="display-5 fw-bold text-center">Filter Tasks</h1>
+                          
+                          <!-- Task Form-->                        
+<!--                             <form class="row g-3 fs-4" action="redirects/task.php" method="post" id="newTaskForm"  onsubmit="return validateForm()" name="myForm" > -->
+                              
+                              <div class="col-md-6">
+                                <label for="user" class="form-label">User <span style="color:red; font-size: 10px">*required</span></label>
+                                <select id="user" class="form-select" name="user">
+                                  <option selected value="0">Choose One <span style="color:red; font-size: 10px">*required</span></option>
+                                    <?php
+                                      foreach($usersData as $user){
+                                        echo '<option selected value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
+                                      }
+                                    ?>
+                                </select>
+                              </div>                              
+                              
+                              
+                              <div class="col-md-6">
+                                <label for="title" class="form-label">Task Title <span style="color:red; font-size: 10px">*required</span></label>
+                                <input type="text" class="form-control" name="title">
+                              </div>
+                              
+                               <div class="col-md-6">
+                                <label for="category" class="form-label">Task Category <span style="color:red; font-size: 10px">*required</span></label>
+                                <select id="category" class="form-select" name="category">
+                                  <option selected value="0">Choose One</option>
+                                  <option value="Schoolwork">Schoolwork</option>
+                                  <option value="Chore">Chores</option>
+                                  <option value="Social">Social</option>
+                                  <option value="Health">Health</option>
+                                  <option value="Travel">Travel</option>
+                                </select>
+                              </div> 
+                              
+                              <div class="col-md-6">
+                                <label for="category" class="form-label">Task Due Date <span style="color:red; font-size: 10px">*required</span></label><br>
+                                <input type="text" class="form-select" id="datepicker" name="dateDeadline" >
+                              </div>
+                              
+                              <div class="col-12">
+                                <label for="description" class="form-label">Task Description</label>
+                                <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
+                              </div>
+                              
+                              <div class="col-md-6">
+                                <label for="reward" class="form-label">Task Value</label>
+                                <!-- Number input to accept decimal -  https://stackoverflow.com/questions/34057595/allow-2-decimal-places-in-input-type-number -->
+                                <input type="number" class="form-control" name="reward" step=".01">
+                              </div>
+                              
+                              <div class="col-md-6">
+                                <label for="timeNeeded" class="form-label">Minutes Needed To Complete</label>
+                                <input type="number" class="form-control" name="timeNeeded">
+                              </div>
+                              
+                              <div class="col-12">
+<!--                                 <input type="submit" class="btn btn-primary btn-lg" value="Create" name="BTN_create"> -->
+                                      <button type="button" onclick="hideRows(myTable, 2, "Todd Benrud")">Click Me!</button>
+                              </div>
+                              
+<!--                             </form> -->
+                        <!-- Task Form-->  
+
+                    </div>
+                </div>
+            </div>  
+      
+      
+      <section class="py-5">
+
             <div class="container px-lg-5">
-                <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+              <div class="p-4 p-lg-5 bg-light rounded-3 text-center">
                     <div class="m-4 m-lg-5">
                         <h1 class="display-5 fw-bold">A warm welcome!</h1>
-                        <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
 
                       <!--  https://getbootstrap.com/docs/5.0/content/tables/   -->
                       <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="myTable">
                            <thead>
                             <tr>
                               <th scope="col">Created</th>

@@ -76,5 +76,18 @@
         "reward": "678",
         "timeNeeded": "586",
         "category": "Social"
+    },
+    {
+        "uid": 2007,
+        "userUID": "101",
+        "dateCreate": "2023-01-27",
+        "dateDeadline": "2023\/02\/25",
+        "dateComplete": null,
+        "title": "Dr. Appointment",
+        "status": "created",
+        "description": "General check up0",
+        "reward": "0",
+        "timeNeeded": "45",
+        "category": "Health"
     }
 ]

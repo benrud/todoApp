@@ -23,7 +23,7 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <?php echo $navBar;?>   
+        <?php echo $navBar;?>
       <!-- Header-->
         <header class="py-5">
             <div class="container px-lg-5">
