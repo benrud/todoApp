@@ -6,8 +6,8 @@
 // process form IF user selected and BTN_create was clicked 
 if(isset($_POST['BTN_create']) && $_POST['user'] > 0) {
 
- $date = date_create($_POST['dateDeadline']);
- $deadLineReformatted = date_format($date,"Y/m/d");
+  $date = date_create($_POST['dateDeadline']);
+  $deadLineReformatted = date_format($date,"Y/m/d");
   
   //Create a new LARGEST UID based on existing UIDs in an array. 
   $largest_uid = 0;
@@ -43,8 +43,9 @@ if(isset($_POST['BTN_create']) && $_POST['user'] > 0) {
   var_dump($tasksData);
   echo '</pre>';
 
+ 
   
-  }
+}
 
 //   header('Location: /index.php');
 ?>
