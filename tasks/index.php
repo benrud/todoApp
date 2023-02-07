@@ -1,4 +1,22 @@
-<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; ?>
+<?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
+
+$result = array();
+foreach ($tasksData as $task) {
+  foreach ($usersData as $user) {
+    if ($task["userUID"] == $user["uid"]) {
+        unset($user["uid"]);  
+        $result[] = array_merge($task, $user);      
+    } //if
+  }//foreach User
+}//foreach Task
+
+
+// echo '<pre>';
+// var_dump($result);
+// echo '</pre>';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,7 +54,7 @@
                               <thead>
                                 <tr>
                                   <th scope="col">Due Date</th>
-                                  <th scope="col">User</th>
+                                  <th scope="col">Name</th>
                                   <th scope="col">Title</th>
                                   <th scope="col">Category</th>
                                   <th scope="col">Value</th>
@@ -44,11 +62,11 @@
                               </thead>
                               <tbody>
                                 <?php
-                                    foreach($tasksData as $key => $task) {
+                                    foreach($result as $key => $task) {
                                       echo '
                                               <tr>
                                                 <th scope="row">1</th>
-                                                <td>'.$task['userUID'].'</td>
+                                                <td>'.$task['fName'].' '.$task['lName'].'</td>
                                                 <td>Otto</td>
                                                 <td>'.$task['category'].'</td>
                                                 <td>@mdo</td>

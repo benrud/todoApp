@@ -38,7 +38,7 @@
         "timeNeeded": "474",
         "category": "Social"
     },    {
-        "uid": 2001,
+        "uid": 2004,
         "userUID": 101,
         "dateCreate": "2023-01-19",
         "dateDeadline": "2023-01-25",
@@ -51,7 +51,7 @@
         "category": "home work"
     },
     {
-        "uid": 2002,
+        "uid": 2005,
         "userUID": 101,
         "dateCreate": "2023-01-20",
         "dateDeadline": "2023-01-30",
@@ -62,18 +62,5 @@
         "reward": 20.5,
         "timeNeeded": 130,
         "category": "project"
-    },
-    {
-        "uid": "2003",
-        "userUID": "102",
-        "dateCreate": "2023\/02\/06",
-        "dateDeadline": "2023\/02\/25",
-        "dateComplete": null,
-        "title": "rth",
-        "description": "dfthyjf",
-        "status": "created",
-        "reward": "546",
-        "timeNeeded": "474",
-        "category": "Social"
     }
 ]
