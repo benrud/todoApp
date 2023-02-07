@@ -9,7 +9,14 @@ $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
     // Convert json data to PHP array.
     $tasksData =  json_decode($jsonTasks, TRUE);   
     $usersData =  json_decode($jsonUsers, TRUE);
+
+
 // JSON data needed for app.
+
+// echo '<pre>';
+// var_dump($tasksData);
+// echo '</pre>';
+
 
 // **************** reusable DATA manipulation functions and variables below
 // **************** reusable DATA manipulation functions and variables below

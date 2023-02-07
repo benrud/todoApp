@@ -38,10 +38,10 @@
                               <div class="col-md-6">
                                 <label for="user" class="form-label">User <span style="color:red; font-size: 10px">*required</span></label>
                                 <select id="user" class="form-select" name="user">
-                                  <option selected value="0">Choose One <span style="color:red; font-size: 10px">*required</span></option>
+                                  <option value="0" selected>Choose One <span style="color:red; font-size: 10px"></span></option>
                                     <?php
                                       foreach($usersData as $user){
-                                        echo '<option selected value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
+                                        echo '<option value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
                                       }
                                     ?>
                                 </select>

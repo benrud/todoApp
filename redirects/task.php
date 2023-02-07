@@ -39,13 +39,13 @@ if(isset($_POST['BTN_create']) && $_POST['user'] > 0) {
 
 
   
-  echo '<pre>';
-  var_dump($tasksData);
-  echo '</pre>';
+  // echo '<pre>';
+  // var_dump($newFormData);
+  // echo '</pre>';
 
  
   
 }
 
-//   header('Location: /index.php');
+  header('Location: /index.php');
 ?>
