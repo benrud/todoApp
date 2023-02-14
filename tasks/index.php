@@ -50,35 +50,32 @@ foreach ($tasksData as $task) {
                         <h1 class="display-5 fw-bold">A warm welcome!</h1>
                         <p class="fs-4">Bootstrap utility classes are used to create this jumbotron since the old component has been removed from the framework. Why create custom CSS when you can use utilities?</p>
                             
-                            <table class="table table-striped table-hover">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Due Date</th>
-                                  <th scope="col">Name</th>
-                                  <th scope="col">Title</th>
-                                  <th scope="col">Category</th>
-                                  <th scope="col">Value</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php
-                                    foreach($result as $key => $task) {
-                                      echo '
-                                              <tr>
-                                                <th scope="row">1</th>
-                                                <td>'.$task['fName'].' '.$task['lName'].'</td>
-                                                <td>Otto</td>
-                                                <td>'.$task['category'].'</td>
-                                                <td>@mdo</td>
-                                              </tr>
-                                            ';
-                                    }
-                                ?>
-                                
-
-
-                              </tbody>
-                            </table>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Due Date</th>
+      <th scope="col">Name</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+        foreach($result as $key => $task) {
+          echo '
+                  <tr>
+                    <th scope="row">'.$task['dateDeadline'].'</th>
+                    <td>'.$task['fName'].' '.$task['lName'].'</td>
+                    <td>'.$task['title'].'</td>
+                    <td>'.$task['category'].'</td>
+                    <td>@mdo</td>
+                  </tr>
+                ';
+        }
+    ?>
+  </tbody>
+</table>
                        
                     </div>
                 </div>
