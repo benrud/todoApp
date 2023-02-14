@@ -69,7 +69,7 @@ foreach ($tasksData as $task) {
                     <td>'.$task['fName'].' '.$task['lName'].'</td>
                     <td>'.$task['title'].'</td>
                     <td>'.$task['category'].'</td>
-                    <td>@mdo</td>
+                    <td>'.$task['reward'].'</td>
                   </tr>
                 ';
         }
