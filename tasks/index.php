@@ -17,13 +17,9 @@ foreach ($result as $cat) {
 }
 $uniqueCats = array_unique($categories);
 
-
-
-
-echo '<pre>';
-var_dump($uniqueCats);
-echo '</pre>';
-
+// echo '<pre>';
+// var_dump($uniqueCats);
+// echo '</pre>';
 
 ?>
 <!DOCTYPE html>
@@ -48,11 +44,14 @@ echo '</pre>';
                         <p class="fs-4">Form GOES here</p>
                         <form action="/redirects/search.php" method="post"> 
                            
-                          <select class="form-select" aria-label="Default select example">
+                          <select class="form-select" aria-label="Default select example" name="filterCategory">
                             <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <?php
+                              foreach($uniqueCats as $cat) {
+                                echo '<option value="'.$cat.'">'.$cat.'</option>';
+                              }
+                            ?>                
+                            
                           </select>
                           
                           
