@@ -37,7 +37,8 @@
         "reward": "546",
         "timeNeeded": "474",
         "category": "Social"
-    },    {
+    },
+    {
         "uid": 2004,
         "userUID": 101,
         "dateCreate": "2023-01-19",
@@ -62,5 +63,31 @@
         "reward": 20.5,
         "timeNeeded": 130,
         "category": "project"
+    },
+    {
+        "uid": "2006",
+        "userUID": "102",
+        "dateCreate": "2023\/02\/15",
+        "dateDeadline": "2023\/02\/25",
+        "dateComplete": null,
+        "title": "Dinner",
+        "description": "Birthday dinner",
+        "status": "created",
+        "reward": "1",
+        "timeNeeded": "1",
+        "category": "Social"
+    },
+    {
+        "uid": "2007",
+        "userUID": "101",
+        "dateCreate": "2023\/02\/15",
+        "dateDeadline": "2023\/02\/27",
+        "dateComplete": null,
+        "title": "Birthday Party",
+        "description": "Paul's",
+        "status": "created",
+        "reward": "100",
+        "timeNeeded": "100",
+        "category": "Social"
     }
 ]
