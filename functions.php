@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 $taskDataFile = $_SERVER['DOCUMENT_ROOT']."/data/tasks.json";
 $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
 

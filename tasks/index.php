@@ -17,10 +17,15 @@ foreach ($result as $cat) {
 }
 $uniqueCats = array_unique($categories);
 
-// echo '<pre>';
-// var_dump($uniqueCats);
-// echo '</pre>';
 
+if (session_status() == PHP_SESSION_ACTIVE) {
+  echo 'YES SESSION';
+  echo '<pre>';
+  var_dump($_SESSION['search']);
+  echo '</pre>';
+} else {
+  echo 'NO SESSION';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

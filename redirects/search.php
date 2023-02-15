@@ -6,20 +6,19 @@
       foreach($tasksData as $task){
         
         if($task['category'] == $_POST['filterCategory']) {
-          $_SESSION[$i] = $task;
+          $_SESSION['search'][$i] = $task;
           $i++;
         } // END IF
         
       } // END FOREACH
 
-
+      header('Location: /tasks/index.php');
   } else {
    // error
   }
 
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
-
+    // echo '<pre>';
+    // var_dump($_SESSION);
+    // echo '</pre>';
 
 ?>
