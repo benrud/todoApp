@@ -12,6 +12,21 @@ $usersDataFile = $_SERVER['DOCUMENT_ROOT']."/data/users.json";
     $usersData =  json_decode($jsonUsers, TRUE);
 
 
+//added from tasks/index.php
+//converted results to $mergedData
+    $mergedData = array();
+    foreach ($tasksData as $task) {
+      foreach ($usersData as $user) {
+        if ($task["userUID"] == $user["uid"]) {
+            unset($user["uid"]);  
+            $mergedData[] = array_merge($task, $user);      
+        } //if
+      }//foreach User
+    }//foreach Task
+
+
+
+
 // JSON data needed for app.
 
 // echo '<pre>';

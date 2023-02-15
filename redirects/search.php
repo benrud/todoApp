@@ -1,6 +1,6 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
   
-  if (isset($_POST['BTN_search'])) {
+  if (isset($_POST['BTN_search']) && $_POST['filterCategory'] != "1" && $_POST['filterUser'] != "1") {
 
       $i = 0;
       foreach($tasksData as $task){
@@ -12,10 +12,8 @@
         
       } // END FOREACH
 
-      header('Location: /tasks/index.php');
-  } else {
-   // error
-  }
+      header('Location: /tasks/index.php?filter=1');
+  } 
 
     // echo '<pre>';
     // var_dump($_SESSION);

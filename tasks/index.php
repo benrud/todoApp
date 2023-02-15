@@ -1,31 +1,23 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
-$result = array();
-foreach ($tasksData as $task) {
-  foreach ($usersData as $user) {
-    if ($task["userUID"] == $user["uid"]) {
-        unset($user["uid"]);  
-        $result[] = array_merge($task, $user);      
-    } //if
-  }//foreach User
-}//foreach Task
+
 
 // https://stackoverflow.com/questions/10408482/how-to-get-unique-value-in-multidimensional-array
 $categories = array();
-foreach ($result as $cat) {
+foreach ($mergedData as $cat) {
     $categories[] = $cat['category'];
 }
 $uniqueCats = array_unique($categories);
 
-
-if (session_status() == PHP_SESSION_ACTIVE) {
-  echo 'YES SESSION';
-  echo '<pre>';
-  var_dump($_SESSION['search']);
-  echo '</pre>';
+if ($_GET['filter'] == 1){
+  $filteredData = $_SESSION['search'];
+  unset($_SESSION['search']); 
 } else {
-  echo 'NO SESSION';
+  $filteredData = $mergedData;
 }
+  // echo '<pre>';
+  // var_dump($users);
+  // echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,15 +42,26 @@ if (session_status() == PHP_SESSION_ACTIVE) {
                         <form action="/redirects/search.php" method="post"> 
                            
                           <select class="form-select" aria-label="Default select example" name="filterCategory">
-                            <option selected>Open this select menu</option>
+                            <option value="1" selected>Open this select menu</option>
                             <?php
                               foreach($uniqueCats as $cat) {
                                 echo '<option value="'.$cat.'">'.$cat.'</option>';
                               }
                             ?>                
-                            
                           </select>
                           
+                          <br>
+
+                          <select class="form-select" aria-label="Default select example" name="filterUser">
+                            <option value="1" selected>Open this select menu</option>
+                            <?php
+                              foreach($usersData as $user) {
+                                echo '<option value="'.$user['uid'].'">'.$user['fName'].' '.$user['lName'].'</option>';
+                              }
+                            ?>                
+                          </select>
+                          
+                          <br>
                           
                           <input type="submit" value="Search" class="btn btn-primary btn-lg" name="BTN_search">
                         </form>
@@ -86,7 +89,7 @@ if (session_status() == PHP_SESSION_ACTIVE) {
   </thead>
   <tbody>
     <?php
-        foreach($result as $key => $task) {
+        foreach($filteredData as $key => $task) {
           echo '
                   <tr>
                     <th scope="row">'.$task['dateDeadline'].'</th>
