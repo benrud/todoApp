@@ -10,10 +10,19 @@ foreach ($tasksData as $task) {
   }//foreach User
 }//foreach Task
 
+// https://stackoverflow.com/questions/10408482/how-to-get-unique-value-in-multidimensional-array
+$categories = array();
+foreach ($result as $cat) {
+    $categories[] = $cat['category'];
+}
+$uniqueCats = array_unique($categories);
 
-// echo '<pre>';
-// var_dump($result);
-// echo '</pre>';
+
+
+
+echo '<pre>';
+var_dump($uniqueCats);
+echo '</pre>';
 
 
 ?>
@@ -37,7 +46,18 @@ foreach ($tasksData as $task) {
                     <div class="m-4 m-lg-5">
                         <h1 class="display-5 fw-bold">Filter Tasks</h1>
                         <p class="fs-4">Form GOES here</p>
-                        <a class="btn btn-primary btn-lg" href="#!">Filter</a>
+                        <form action="/redirects/search.php" method="post"> 
+                           
+                          <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                          
+                          
+                          <input type="submit" value="Search" class="btn btn-primary btn-lg" name="BTN_search">
+                        </form>
                     </div>
                 </div>
             </div>
