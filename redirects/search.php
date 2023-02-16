@@ -4,8 +4,8 @@
   $matchCategory = ($age >= 18) ? true : false;
 
   if (isset($_POST['BTN_search'])) { // START:: IF BUTTON pressed.
-
-      if ($_POST['filterCategory'] != "1" && $_POST['filterUser'] != "1") { // START:: IF all filters used.
+      // START:: IF all filters used.
+      if ($_POST['filterCategory'] != "1" && $_POST['filterUser'] != "1") { 
           $i = 0;
           foreach($tasksData as $task){
             if($task['category'] == $_POST['filterCategory'] && $task['userUID'] == $_POST['filterUser'] ) {
@@ -15,20 +15,25 @@
           } // END FOREACH
   
       // End:: IF all filters used.
-      // if user ONLY                                                                     
+      // START:: if user ONLY                                                                     
       } elseif ($_POST['filterCategory'] == "1" && $_POST['filterUser'] != "1") {
           $i = 0;
           foreach($tasksData as $task){
-            
-            if($task['userUID'] == $_POST['filterUser']) {
+            if($task['userUID'] == $_POST['filterUser'] ) {
               $_SESSION['search'][$i] = $task;
               $i++;
             } // END IF
-            
+          } // END FOREACH
+      // START:: if category ONLY                                                                     
+      } elseif ($_POST['filterCategory'] != "1" && $_POST['filterUser'] == "1") {
+          $i = 0;
+          foreach($tasksData as $task){
+            if($task['category'] == $_POST['filterCategory']) {
+              $_SESSION['search'][$i] = $task;
+              $i++;
+            } // END IF
           } // END FOREACH
 
-
-        
       }
     
     
