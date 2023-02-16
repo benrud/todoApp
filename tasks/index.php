@@ -1,18 +1,18 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
-$result = array();
-foreach ($tasksData as $task) {
-  foreach ($usersData as $user) {
-    if ($task["userUID"] == $user["uid"]) {
-        unset($user["uid"]);  
-        $result[] = array_merge($task, $user);      
-    } //if
-  }//foreach User
-}//foreach Task
+// $result = array();
+// foreach ($tasksData as $task) {
+//   foreach ($usersData as $user) {
+//     if ($task["userUID"] == $user["uid"]) {
+//         unset($user["uid"]);  
+//         $result[] = array_merge($task, $user);      
+//     } //if
+//   }//foreach User
+// }//foreach Task
 
 // https://stackoverflow.com/questions/10408482/how-to-get-unique-value-in-multidimensional-array
 $categories = array();
-foreach ($result as $cat) {
+foreach ($mergedTaskUserData as $cat) {
     $categories[] = $cat['category'];
 }
 $uniqueCats = array_unique($categories);
@@ -81,7 +81,7 @@ $uniqueCats = array_unique($categories);
   </thead>
   <tbody>
     <?php
-        foreach($result as $key => $task) {
+        foreach($mergedTaskUserData as $key => $task) {
           echo '
                   <tr>
                     <th scope="row">'.$task['dateDeadline'].'</th>
