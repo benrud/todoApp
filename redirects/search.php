@@ -1,8 +1,5 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
-
-  $matchCategory = ($age >= 18) ? true : false;
-
   if (isset($_POST['BTN_search'])) { // START:: IF BUTTON pressed.
       // START:: IF all filters used.
       if ($_POST['filterCategory'] != "1" && $_POST['filterUser'] != "1") { 
