@@ -1,14 +1,10 @@
 <?php /*1st Line on every webpage.*/ include $_SERVER['DOCUMENT_ROOT'].'/functions.php'; 
 
-// $result = array();
-// foreach ($tasksData as $task) {
-//   foreach ($usersData as $user) {
-//     if ($task["userUID"] == $user["uid"]) {
-//         unset($user["uid"]);  
-//         $result[] = array_merge($task, $user);      
-//     } //if
-//   }//foreach User
-// }//foreach Task
+if($_GET['search'] == 'yes') {
+  $usableTaskData = $_SESSION['searchResults'];
+} else {
+  $usableTaskData = $mergedTaskUserData;
+}
 
 // https://stackoverflow.com/questions/10408482/how-to-get-unique-value-in-multidimensional-array
 $categories = array();
@@ -17,9 +13,20 @@ foreach ($mergedTaskUserData as $cat) {
 }
 $uniqueCats = array_unique($categories);
 
+
+// https://stackoverflow.com/questions/10408482/how-to-get-unique-value-in-multidimensional-array
+$users = array();
+foreach ($mergedTaskUserData as $user) {
+  $users[] = $user['userUID'];
+}
+$uniqueUsers = array_unique($users);
+
+
 // echo '<pre>';
-// var_dump($uniqueCats);
+// var_dump($uniqueUsers);
 // echo '</pre>';
+
+
 
 ?>
 <!DOCTYPE html>
@@ -45,9 +52,19 @@ $uniqueCats = array_unique($categories);
                         <form action="/redirects/search.php" method="post"> 
                            
                           <select class="form-select" aria-label="Default select example" name="filterCategory">
-                            <option selected>Open this select menu</option>
+                            <option selected>Choose a Category</option>
                             <?php
                               foreach($uniqueCats as $cat) {
+                                echo '<option value="'.$cat.'">'.$cat.'</option>';
+                              }
+                            ?>                
+                            
+                          </select>
+                          <br>
+                          <select class="form-select" aria-label="Default select example" name="filterCategory">
+                            <option selected>Choose a User</option>
+                            <?php
+                              foreach($uniqueUsers as $cat) {
                                 echo '<option value="'.$cat.'">'.$cat.'</option>';
                               }
                             ?>                
@@ -81,7 +98,7 @@ $uniqueCats = array_unique($categories);
   </thead>
   <tbody>
     <?php
-        foreach($mergedTaskUserData as $key => $task) {
+        foreach($usableTaskData as $key => $task) {
           echo '
                   <tr>
                     <th scope="row">'.$task['dateDeadline'].'</th>

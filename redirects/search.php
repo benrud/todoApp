@@ -4,6 +4,7 @@
   if(isset($_POST['BTN_search'])) {
 
         $searchResultsIndex = 0;
+        $_SESSION['searchResults'] = [];
         //loop throught medgedData
         foreach($mergedTaskUserData as $key => $task) {
 
@@ -11,16 +12,18 @@
             if($_POST['filterCategory'] == $task['category']) {
               
               //search matches data. Build a session. 
-              $_SESSION['searchResults'][$searchResultsIndex] = [$task]; //remove []
+              $_SESSION['searchResults'][$searchResultsIndex] = $task; 
               $searchResultsIndex++;
 
             } //if() inside foreach
           
         }//foreach
 
-    echo '<pre>';
-    var_dump($_SESSION['searchResults']);
-    echo '</pre>';
+    header('Location: /tasks/index.php?search=yes');
+    
+    // echo '<pre>';
+    // var_dump($_SESSION['searchResults']);
+    // echo '</pre>';
 
   }//if() button pressed
 
